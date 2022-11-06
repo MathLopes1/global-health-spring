@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_patient")
-public class PatientEntity {
+public class PatientEntity extends AbstractEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq")
@@ -23,6 +23,7 @@ public class PatientEntity {
     private String address;
     
     public PatientEntity(String name, String healthInsuranceCardId, String address) {
+        super();
         this.name = name;
         this.healthInsuranceCardId = healthInsuranceCardId;
         this.address = address;
