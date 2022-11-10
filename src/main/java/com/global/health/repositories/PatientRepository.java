@@ -1,7 +1,8 @@
 package com.global.health.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.global.health.entities.PatientEntity;
 
-public interface PatientRepository extends JpaRepository<PatientEntity, Long> { }
+@Repository
+public interface PatientRepository extends AbstractRepository<PatientEntity> { }
