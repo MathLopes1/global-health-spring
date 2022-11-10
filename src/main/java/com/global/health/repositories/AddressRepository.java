@@ -5,4 +5,4 @@ import org.springframework.stereotype.Repository;
 import com.global.health.entities.AddressEntity;
 
 @Repository
-public interface AddressRepository extends AbstractRepository<AddressEntity> {}
+public interface AddressRepository extends AbstractRepository<AddressEntity> { }
