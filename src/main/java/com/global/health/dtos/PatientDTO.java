@@ -1,19 +1,13 @@
-package com.global.health.entities;
+package com.global.health.dtos;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "tb_patient")
-public class PatientEntity extends AbstractEntity{
+import com.global.health.entities.PatientEntity;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq")
-    @SequenceGenerator(name = "patient_seq", allocationSize = 1)
+public class PatientDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+ 
+
     private String id;
 
     private String name;
@@ -22,11 +16,11 @@ public class PatientEntity extends AbstractEntity{
 
     private String address;
     
-    public PatientEntity(String name, String healthInsuranceCardId, String address) {
-        super();
-        this.name = name;
-        this.healthInsuranceCardId = healthInsuranceCardId;
-        this.address = address;
+    public PatientDTO(PatientEntity object) {
+        this.id = object.getId();
+        this.name = object.getName();
+        this.healthInsuranceCardId = object.getHealthInsuranceCardId();
+        this.address = object.getAddress();
     } 
 
     public String getId () {
