@@ -1,20 +1,26 @@
 package com.global.health.entities;
 
+import java.util.UUID;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_patient")
-public class PatientEntity extends AbstractEntity{
+public class PatientEntity extends AbstractEntity {
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "patient_seq")
-    @SequenceGenerator(name = "patient_seq", allocationSize = 1)
-    private String id;
+    @Type(type = "uuid-char")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private UUID id;
 
     private String name;
 
@@ -22,15 +28,14 @@ public class PatientEntity extends AbstractEntity{
 
     private String address;
     
-    public PatientEntity(String name, String healthInsuranceCardId, String address) {
-        super();
-        this.name = name;
-        this.healthInsuranceCardId = healthInsuranceCardId;
-        this.address = address;
-    } 
+    public PatientEntity() { } 
 
-    public String getId () {
+    public UUID getId () {
         return this.id;
+    }
+
+    public void setId (UUID id) {
+        this.id = id;
     }
 
     public String getName () {
