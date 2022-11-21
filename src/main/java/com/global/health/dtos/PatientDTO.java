@@ -1,14 +1,10 @@
 package com.global.health.dtos;
 
-import java.io.Serializable;
+import java.util.UUID;
 
-import com.global.health.entities.PatientEntity;
+public class PatientDTO extends AbstractDTO {
 
-public class PatientDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
- 
-
-    private String id;
+    private UUID id;
 
     private String name;
 
@@ -16,15 +12,12 @@ public class PatientDTO implements Serializable {
 
     private String address;
     
-    public PatientDTO(PatientEntity object) {
-        this.id = object.getId();
-        this.name = object.getName();
-        this.healthInsuranceCardId = object.getHealthInsuranceCardId();
-        this.address = object.getAddress();
-    } 
-
-    public String getId () {
+    public UUID getId () {
         return this.id;
+    }
+
+    public void setId (UUID id) {
+        this.id = id;
     }
 
     public String getName () {
