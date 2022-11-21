@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.global.health.entities.PatientEntity;
 import com.global.health.interfaces.IPatientService;
 import com.global.health.repositories.PatientRepository;
+import com.global.health.utils.fieldsValidation;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,6 +22,8 @@ public class PatientService implements IPatientService {
     }
 
     public PatientEntity create(PatientEntity patient) {
+		fieldsValidation.validatePatient(patient);
+	
 		patient.setUpdatedAt(LocalDate.now());
 		patient.setCreatedAt(LocalDate.now());
 
