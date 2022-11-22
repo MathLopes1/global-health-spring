@@ -62,11 +62,11 @@ public class PatientController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<PatientDTO> findById(@PathVariable UUID id) {
-		PatientEntity patient = this.patientService.findById(id);
+    public ResponseEntity<PatientDTO> findById(@PathVariable UUID id) {
+        PatientEntity patient = this.patientService.findById(id);
 
-		return new ResponseEntity<PatientDTO>(toPatientDTO(patient),HttpStatus.OK);
-	}
+        return new ResponseEntity<PatientDTO>(toPatientDTO(patient), HttpStatus.OK);
+    }
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable UUID id) {
